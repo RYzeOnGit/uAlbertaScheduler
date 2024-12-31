@@ -1,1 +1,1 @@
-WebApp to solve are your final exam schedule nuisances
+WebApp to solve your final exam schedule nuisances
