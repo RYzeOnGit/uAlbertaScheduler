@@ -1,11 +1,29 @@
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import examData from '../../../constants/Fall24FinalSchedule.json'
 
 export default function Search() {
-  
+  const [searchTerm, setSearchTerm] = useState('')
+
+  // Filter data based on search term
+  const filteredData = examData.data.slice(1).filter(row => {
+    return row[0]?.toLowerCase().includes(searchTerm.toLowerCase())
+  })
+
   return (
-    <div>
+    <div className='p-4'>
       <h1 className='font-semibold text-2xl'>Search Page</h1>
+
+      {/* Search input */}
+      <div className="mb-4">
+        <input
+          type="text"
+          placeholder="Search by course name..."
+          className="w-full p-2 border border-gray-300 rounded"
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+      </div>
 
       {/* Scrollable table container */}
       <div className="overflow-x-auto">
@@ -22,7 +40,7 @@ export default function Search() {
             </tr>
           </thead>
           <tbody>
-            {examData.data.slice(1).map((row, index) => (
+            {filteredData.map((row, index) => (
               <tr key={index} className="hover:bg-gray-50">
                 <td className="border border-gray-200 px-4 py-2">{row[0]}</td>
                 <td className="border border-gray-200 px-4 py-2">{row[1]}</td>
