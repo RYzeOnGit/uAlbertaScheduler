@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import logo from "../assets/UofAlogo.png";
-
+import Mascot from "../assets/Mascot.png";
 export default function Home() {
   const [isFilling, setIsFilling] = useState(false); // State to track if the bar is actively filling
 
@@ -21,7 +21,7 @@ export default function Home() {
         </div>
 
         {/* Navbar Links */}
-        <ul className="flex space-x-6">
+        <ul className="flex space-x-6 font-semibold">
           <li>
             <Link
               to="/search"
@@ -95,6 +95,10 @@ export default function Home() {
             Get started
           </div>
         </div>
+        <div className="absolute top-1/2 right-4 transform -translate-y-1/2">
+          <img src={Mascot} alt="Mascot" className="w-[1080px] h-[720px] translate-x-[-30px]" />
+        </div>
+
       </div>
     </div>
   );
