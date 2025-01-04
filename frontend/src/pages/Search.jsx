@@ -106,7 +106,7 @@ export default function Search() {
           </nav>
 
     <div className='p-4'>
-      <h1 className='font-semibold text-2xl pb-3 text-white'>Search Page</h1>
+      <h1 className='font-bold text-2xl pb-3 text-yellow-300'>Search and add! All added courses are displayed in the Calender 📅</h1>
 
       {/* Search input */}
       <div className="mb-4">

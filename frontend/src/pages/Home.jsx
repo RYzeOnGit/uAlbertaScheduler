@@ -14,11 +14,11 @@ const Home = () => {
     <div className="min-h-screen flex flex-col bg-green-700 overflow-x-hidden">
 
       {/* Navbar */}
-      <nav className="w-full bg-green-800 text-yellow-300 py-4">
-      <div className="max-w-7xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-4">
+      <nav className="w-full bg-green-800 text-yellow-300 px-4 md:px-8 py-4">
+      <div className="max-w-full mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-2">
     <div className="flex items-center">
       <img src={logo} alt="UofA Logo" className="w-10 h-10 md:w-14 md:h-14 mr-4" />
-      <div className="font-bold text-lg md:text- 3xl">UofA Scheduler</div>
+      <span className="font-bold text-lg md:text-xl">UofA Scheduler</span>
     </div>
     <ul className="flex flex-wrap justify-center gap-2 md:gap-10 font-semibold text-xl">
       <li>
@@ -67,7 +67,7 @@ const Home = () => {
           }`}
         />
         <span className="relative z-10 font-bold text-green-800">
-          Get started
+          Get started🔎
         </span>
       </button>
     </div>
