@@ -52,10 +52,6 @@ export default function Search() {
     }
   }, [savedExams]);
 
-  // Alter `savedExams` rendering based on case-insensitive `searchTerm`
-  const filteredExams = savedExams.filter((exam) =>
-    exam.toLowerCase().includes(searchTerm.toLowerCase())
-  );
 
   const handleToggleExam = (exam) => {
     const isExamSaved = savedExams.some(
