@@ -94,7 +94,7 @@ export default function Calendar() {
                   </nav>
 
     <div className='p-4'>
-      <h1 className='font-semibold text-2xl mb-4 text-white'>Calendar Page</h1>
+      <h1 className='font-bold text-2xl mb-4 text-yellow-300'>Add to your Google calendar, remove and compare courses! Your very own final schedule 😎😏🔥🔥</h1>
       {/* Scrollable table container */}
       <div className="overflow-x-auto mt-4">
         <table className="min-w-full border-collapse border border-green-700 text-white font-bold text-left">
@@ -121,11 +121,12 @@ export default function Calendar() {
                 <td className="border border-gray-200 px-4 py-2">{row[5]}</td>
                 <td className="border border-gray-200 px-4 py-2">{row[6]}</td>
                 <td className="border border-gray-200 px-4 py-2">
+                <div className="flex items-center gap-10">
                   <button
                     onClick={() => handleToggleExam(row)}
                     className={`px-3 py-1 rounded ${
                       savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1])
-                        ? 'bg-red-500 text-white hover:bg-red-900'
+                        ? 'bg-red-500 text-white  hover:bg-red-900'
                         : 'bg-blue-500 text-white hover:bg-blue-600'
                     }`}
                   >
@@ -134,14 +135,14 @@ export default function Calendar() {
                       : 'Add Exam'}
                   </button>
                   
-                  <AddToCalendarButton
+                  <AddToCalendarButton 
                     name= {row[0]}
                     startDate= {row[2].split("/")[2]+"-"+row[2].split("/")[0]+"-"+row[2].split("/")[1]}
                     location = {row[6]}
-                    options={'Google'}
+                    options= "'Google'"
                     description= {"Section: " + row[1]}
                   ></AddToCalendarButton>
-
+                </div>
                 </td>
               </tr>
             ))}
