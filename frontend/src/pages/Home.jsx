@@ -7,7 +7,7 @@ const Home = () => {
   const [isFilling, setIsFilling] = useState(false);
 
   const handleClick = () => {
-    window.location.href = "/search";
+    console.log("hello world");
   };
 
   return (
@@ -67,7 +67,9 @@ const Home = () => {
           }`}
         />
         <span className="relative z-10 font-bold text-green-800">
-          Get started🔎
+          <link to="/search">
+            Get started🔎
+          </link>
         </span>
       </button>
     </div>
