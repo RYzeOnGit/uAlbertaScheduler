@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import logo from "../assets/UofAlogo.png" 
 import examData from '../../../constants/Fall24FinalSchedule.json'
 
 
@@ -73,9 +74,39 @@ export default function Search() {
     return row[0]?.toLowerCase().includes(searchTerm.toLowerCase())
   })
 
-  return (
+  return (  
+    
+    <div className="min-h-screen flex flex-col bg-green-700 overflow-x-hidden">
+    
+          {/* Navbar */}
+          <nav className="w-full bg-green-800 text-yellow-300 px-4 md:px-8 py-4">
+            <div className="max-w-7xl mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-2">
+              <div className="flex items-center">
+                <img src={logo} alt="UofA Logo" className="w-10 h-10 md:w-14 md:h-14 mr-4" />
+                <span className="font-bold text-lg md:text-xl">UofA Scheduler</span>
+              </div>
+              <ul className="flex flex-wrap justify-center gap-2 md:gap-6 font-semibold">
+                <li>
+                  <Link to="/search" className="hover:text-yellow-500 transition duration-200">
+                    Search
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calendar" className="hover:text-yellow-500 transition duration-200">
+                    Calendar
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="hover:text-yellow-500 transition duration-200">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
     <div className='p-4'>
-      <h1 className='font-semibold text-2xl'>Search Page</h1>
+      <h1 className='font-semibold text-2xl pb-3 text-white'>Search Page</h1>
 
       {/* Search input */}
       <div className="mb-4">
@@ -93,7 +124,7 @@ export default function Search() {
         <table className="min-w-full border-collapse border border-gray-200">
           <thead>
             <tr className="bg-gray-100">
-              <th className="border border-gray-200 px-4 py-2">Course</th>
+              <th className="border border-gray-200 px-4 py-2 ">Course</th>
               <th className="border border-gray-200 px-4 py-2">Section</th>
               <th className="border border-gray-200 px-4 py-2">Date</th>
               <th className="border border-gray-200 px-4 py-2">Time</th>
@@ -104,7 +135,7 @@ export default function Search() {
           </thead>
           <tbody>
             {filteredData.map((row, index) => (
-              <tr key={index} className="hover:bg-gray-50">
+              <tr key={index} className="hover:bg-gray-50 text-white hover:text-yellow-300 hover:font-bold hover:bg-lime-800">
                 <td className="border border-gray-200 px-4 py-2">{row[0]}</td>
                 <td className="border border-gray-200 px-4 py-2">{row[1]}</td>
                 <td className="border border-gray-200 px-4 py-2">{row[2]}</td>
@@ -132,5 +163,7 @@ export default function Search() {
         </table>
       </div>
     </div>
-  )
-}
+    </div>
+  );
+};
+
