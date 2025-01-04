@@ -97,16 +97,17 @@ export default function Calendar() {
       <h1 className='font-semibold text-2xl mb-4 text-white'>Calendar Page</h1>
       {/* Scrollable table container */}
       <div className="overflow-x-auto mt-4">
-        <table className="min-w-full border-collapse border border-gray-200">
+        <table className="min-w-full border-collapse border border-green-700 text-white font-bold text-left">
           <thead>
             <tr className="bg-gray-100">
-              <th className="border border-gray-200 px-4 py-2">Course</th>
-              <th className="border border-gray-200 px-4 py-2">Section</th>
-              <th className="border border-gray-200 px-4 py-2">Date</th>
-              <th className="border border-gray-200 px-4 py-2">Time</th>
-              <th className="border border-gray-200 px-4 py-2">Length</th>
-              <th className="border border-gray-200 px-4 py-2">Completion Window</th>
-              <th className="border border-gray-200 px-4 py-2">Location</th>
+            <th className="border border-gray-200 px-4 py-2 bg-green-700">Course</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Section</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Date</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Time</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Length</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Completion Window</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Location</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Status</th>
             </tr>
           </thead>
           <tbody>
@@ -124,12 +125,12 @@ export default function Calendar() {
                     onClick={() => handleToggleExam(row)}
                     className={`px-3 py-1 rounded ${
                       savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1])
-                        ? 'bg-green-500 text-white hover:bg-red-500'
+                        ? 'bg-red-500 text-white hover:bg-red-900'
                         : 'bg-blue-500 text-white hover:bg-blue-600'
                     }`}
                   >
                     {savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1])
-                      ? 'Added'
+                      ? 'Remove'
                       : 'Add Exam'}
                   </button>
                   
