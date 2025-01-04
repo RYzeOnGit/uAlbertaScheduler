@@ -30,6 +30,14 @@ export default function Contact() {
           </ul>
         </div>
       </nav>
+
+      <div>
+        <h1 className="text-3xl font-bold text-yellow-300 p-4">Contact Us</h1>
+        <div className="p-4">
+          <p className="text-lg text-yellow-300">If you have any questions or concerns, please contact us at:</p>
+          <p className="text-lg text-yellow-300">Email: Mighty_Mayoo@example.com or Raymond_Choco@example.com</p>
+        </div>
+      </div>
     </div>
   );
 }
