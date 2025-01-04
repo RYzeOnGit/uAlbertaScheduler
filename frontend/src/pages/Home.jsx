@@ -51,9 +51,8 @@ const Home = () => {
             <p className="text-lg md:text-xl font-bold text-yellow-400 mb-8">
               Add exams to your calendar and never miss an exam again!
             </p>
-            <a href="/search">
+            <Link to="/search">
               <button
-                onClick = "/search"
                 onMouseEnter={() => setIsFilling(true)}
                 onMouseLeave={() => setIsFilling(false)}
                 className="w-full max-w-sm h-14 bg-yellow-400 rounded-lg overflow-hidden relative"
@@ -67,7 +66,8 @@ const Home = () => {
                   Get started🔎
                 </span>
               </button>
-            </a>
+            </Link>
+
           </div>
 
           {/* Mascot Image */}
