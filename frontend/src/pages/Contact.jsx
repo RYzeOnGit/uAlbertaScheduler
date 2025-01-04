@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import logo from "../assets/UofAlogo.png"
-
+import Github from "../assets/githubpng.png"
 export default function Contact() {
   return (
     <div className="min-h-screen flex flex-col bg-green-700 overflow-x-hidden">
@@ -31,11 +31,30 @@ export default function Contact() {
         </div>
       </nav>
 
+  <div className="flex flex-col p-4">
+    <h1 className="text-3xl font-bold text-yellow-300 p-4">
+      Please don't hesitate 🙅‍♂️ to email us with suggestions for improvements 📈 or to report a bug 🐞
+    </h1>
+
+    <div className="flex flex-row items-center">
+      {/* GitHub Logo */}
+      <a href="https://github.com/RYzeOnGit/uAlbertaScheduler" className="flex items-center">
+        <img
+          src={Github}
+          alt="Github Logo"
+          className="w-10 h-10 md:w-24 md:h-24 mr-4"
+        />
+      </a>
+
+      {/* Pointing Finger */}
+      <span className="text-4xl inline-block ml-2 relative top-2">👈</span>
+    </div>
+  </div>
+
       <div>
-        <h1 className="text-3xl font-bold text-yellow-300 p-4">Contact Us</h1>
-        <div className="p-4">
-          <p className="text-lg text-yellow-300">If you have any questions or concerns, please contact us at:</p>
-          <p className="text-lg text-yellow-300">Email: Mighty_Mayoo@example.com or Raymond_Choco@example.com</p>
+        <div className='text-lg  p-4 font-semibold'>
+          <p className="text-xl text-white">If you have any questions or concerns, please contact us at:</p>
+          <p className="text-xl text-white">Email: ryan.chattopadhyay1@gmail.com or imayankhandewal@gmail.com</p>
         </div>
       </div>
     </div>
