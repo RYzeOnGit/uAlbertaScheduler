@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 const setCookie = (name, value, days) => {
   try {
@@ -53,6 +54,7 @@ export default function Calendar() {
       }
     }
 
+    
   useEffect(() => {
     if (savedExams.length > 0) {
       setCookie('savedExams', savedExams, 30);
@@ -103,6 +105,15 @@ export default function Calendar() {
                       ? 'Added'
                       : 'Add Exam'}
                   </button>
+                  
+                  <AddToCalendarButton
+                    name= {row[0]}
+                    startDate= {row[2].split('/').reverse().join('-')}
+                    location = {row[6]}
+                    options={'Google'}
+                    description= {"Section: " + row[1]}
+                  ></AddToCalendarButton>
+
                 </td>
               </tr>
             ))}
