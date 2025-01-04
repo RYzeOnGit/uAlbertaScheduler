@@ -108,7 +108,7 @@ export default function Calendar() {
                   
                   <AddToCalendarButton
                     name= {row[0]}
-                    startDate= {row[2].split('/').reverse().join('-')}
+                    startDate= {row[2].split("/")[2]+"-"+row[2].split("/")[0]+"-"+row[2].split("/")[1]}
                     location = {row[6]}
                     options={'Google'}
                     description= {"Section: " + row[1]}
