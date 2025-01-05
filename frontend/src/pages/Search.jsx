@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import logo from "../assets/UofAlogo.png" 
 import examData from '../../../constants/Fall24FinalSchedule.json'
 
 
@@ -73,16 +74,49 @@ export default function Search() {
     return row[0]?.toLowerCase().includes(searchTerm.toLowerCase())
   })
 
-  return (
+  return (  
+    
+    <div className="min-h-screen flex flex-col bg-green-700 overflow-x-hidden">
+    
+          {/* Navbar */}
+          <nav className="w-full bg-green-800 text-yellow-300 px-4 md:px-8 py-4">
+            <div className="max-w-full mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-2">
+              <div className="flex items-center">
+                 
+                <Link to="/" className="flex items-center">
+                  <img src={logo} alt="UofA Logo" className="w-10 h-10 md:w-14 md:h-14 mr-4" />
+                  <span className="font-bold text-lg md:text-xl">UofA Scheduler</span>
+                  </Link>
+              </div>
+              <ul className="flex flex-wrap justify-center gap-2 md:gap-10 font-semibold text-xl">
+                <li>
+                  <Link to="/" className="hover:text-yellow-500 transition duration-200">
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/calendar" className="hover:text-yellow-500 transition duration-200">
+                    Calendar
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/contact" className="hover:text-yellow-500 transition duration-200">
+                    Contact
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
     <div className='p-4'>
-      <h1 className='font-semibold text-2xl'>Search Page</h1>
+      <h1 className='font-bold text-2xl pb-3 text-yellow-300'>Search and add! All added courses are displayed in the Calender 📅</h1>
 
       {/* Search input */}
       <div className="mb-4">
         <input
           type="text"
           placeholder="Search by course name..."
-          className="w-full p-2 border border-gray-300 rounded"
+          className="w-1/4 p-2 border border-gray-300 rounded"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
@@ -90,21 +124,22 @@ export default function Search() {
 
       {/* Scrollable table container */}
       <div className="overflow-x-auto">
-        <table className="min-w-full border-collapse border border-gray-200">
+        <table className="min-w-full border-collapse border border-green-700 text-white font-bold text-left">
           <thead>
             <tr className="bg-gray-100">
-              <th className="border border-gray-200 px-4 py-2">Course</th>
-              <th className="border border-gray-200 px-4 py-2">Section</th>
-              <th className="border border-gray-200 px-4 py-2">Date</th>
-              <th className="border border-gray-200 px-4 py-2">Time</th>
-              <th className="border border-gray-200 px-4 py-2">Length</th>
-              <th className="border border-gray-200 px-4 py-2">Completion Window</th>
-              <th className="border border-gray-200 px-4 py-2">Location</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Course</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Section</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Date</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Time</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Length</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Completion Window</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Location</th>
+              <th className="border border-gray-200 px-4 py-2 bg-green-700">Status</th>
             </tr>
           </thead>
           <tbody>
             {filteredData.map((row, index) => (
-              <tr key={index} className="hover:bg-gray-50">
+              <tr key={index} className="hover:bg-gray-50 text-white font-bold hover:text-yellow-300 hover:font-bold hover:bg-lime-800">
                 <td className="border border-gray-200 px-4 py-2">{row[0]}</td>
                 <td className="border border-gray-200 px-4 py-2">{row[1]}</td>
                 <td className="border border-gray-200 px-4 py-2">{row[2]}</td>
@@ -117,7 +152,7 @@ export default function Search() {
                   onClick={() => handleToggleExam(row)}
                   className={`px-3 py-1 rounded ${
                     savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1])
-                      ? 'bg-green-500 text-white hover:bg-red-500'
+                      ? 'bg-yellow-500 text-white hover:bg-red-500'
                       : 'bg-blue-500 text-white hover:bg-blue-600'
                   }`}
                 >
@@ -132,5 +167,7 @@ export default function Search() {
         </table>
       </div>
     </div>
-  )
-}
+    </div>
+  );
+};
+
