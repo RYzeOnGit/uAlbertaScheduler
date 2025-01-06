@@ -77,7 +77,7 @@ const Home = () => {
           {/* Main Content */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-6 md:w-1/2 pl-4 md:pl-0">
             <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 leading-tight">
-              UAlberta Final Exam Schedule
+              UAlberta Final Exam Scheduler
             </h1>
             <p className="text-xl text-white max-w-lg">
               Browse final exam schedules with ease and add them to your calendar!
