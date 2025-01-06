@@ -16,7 +16,7 @@ const setCookie = (name, value, days) => {
   }
 };
 
-const validateInput = {
+const validateInput = { 
   course: (value) => {
     const pattern = /^[A-Z]{2,6}\s*\d{3}$/;
     return pattern.test(value.trim()) ? '' : 'Format should be like "CMPUT 175"';
