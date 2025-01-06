@@ -53,6 +53,7 @@ export default function Calendar() {
   });
   const [errors, setErrors] = useState({});
   const [showFireworks, setShowFireworks] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   // Load saved exams from cookies on component mount
   useEffect(() => {
@@ -176,33 +177,65 @@ export default function Calendar() {
     <div className="min-h-screen flex flex-col bg-green-700 overflow-x-hidden">
         {/* Navbar */}
                   <nav className="w-full bg-green-800 text-yellow-300 px-4 md:px-8 py-4">
-                    <div className="max-w-full mx-auto flex flex-wrap md:flex-nowrap items-center justify-between gap-2">
-                      <div className="flex items-center">
-                        
-                        <Link to="/" className="flex items-center">
-                        <img src={logo} alt="UofA Logo" className="w-10 h-10 md:w-14 md:h-14 mr-4" />
-                        <span className="font-bold text-lg md:text-xl">UofA Scheduler</span>
-                        </Link>
-                      </div>
-                      <ul className="flex flex-wrap justify-center gap-2 md:gap-10 font-semibold text-xl">
-                        <li>
-                          <Link to="/" className="hover:text-yellow-500 transition duration-200">
-                            Home
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/search" className="hover:text-yellow-500 transition duration-200">
-                            Search
-                          </Link>
-                        </li>
-                        <li>
-                          <Link to="/contact" className="hover:text-yellow-500 transition duration-200">
-                            Contact
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </nav>
+  <div className="max-w-full mx-auto flex items-center justify-between">
+    <div className="flex items-center">
+      <img src={logo} alt="UofA Logo" className="w-10 h-10 md:w-14 md:h-14 mr-4" />
+      <span className="font-bold text-lg md:text-xl">UofA Scheduler</span>
+    </div>
+
+    {/* Mobile menu button */}
+    <button
+      onClick={() => setIsMenuOpen(!isMenuOpen)}
+      className="md:hidden text-yellow-300 focus:outline-none"
+    >
+      <svg 
+        className="w-6 h-6" 
+        fill="none" 
+        strokeLinecap="round" 
+        strokeLinejoin="round" 
+        strokeWidth="2" 
+        viewBox="0 0 24 24" 
+        stroke="currentColor"
+      >
+        <path d={isMenuOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}></path>
+      </svg>
+    </button>
+
+    {/* Desktop navigation */}
+    <ul className="hidden md:flex space-x-10 font-semibold text-xl">
+      <li><Link to="/" className="hover:text-yellow-500 transition duration-200">Home</Link></li>
+      <li><Link to="/search" className="hover:text-yellow-500 transition duration-200">Search</Link></li>
+      <li><Link to="/contact" className="hover:text-yellow-500 transition duration-200">Contact</Link></li>
+    </ul>
+  </div>
+
+  {/* Mobile menu dropdown */}
+  <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} pt-4`}>
+    <div className="flex flex-col space-y-3">
+      <Link 
+        to="/" 
+        className="block py-2 text-center text-yellow-300 hover:bg-green-900 rounded transition duration-200"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Home
+      </Link>
+      <Link 
+        to="/search" 
+        className="block py-2 text-center text-yellow-300 hover:bg-green-900 rounded transition duration-200"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Search
+      </Link>
+      <Link 
+        to="/contact" 
+        className="block py-2 text-center text-yellow-300 hover:bg-green-900 rounded transition duration-200"
+        onClick={() => setIsMenuOpen(false)}
+      >
+        Contact
+      </Link>
+    </div>
+  </div>
+</nav>
 
     <div className='p-4'>
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
@@ -443,18 +476,15 @@ export default function Calendar() {
                 Remove Exam
               </button>
 
-              <div className="w-full">
-                <AddToCalendarButton 
-                  name={exam[0]}
-                  startDate={exam[2].split("/")[2]+"-"+exam[2].split("/")[0]+"-"+exam[2].split("/")[1]}
-                  location={exam[6]}
-                  options={['Google']}
-                  buttonStyle="full"
-                  size="3"
-                  styleLight="--btn-background: #EAB308; --btn-text: #000000; --btn-shadow: none; width: 100%;"
-                  description={"Section: " + exam[1]}
-                />
-              </div>
+              <AddToCalendarButton 
+                    name= {exam[0]}
+                    startDate= {exam[2].split("/")[2]+"-"+exam[2].split("/")[0]+"-"+exam[2].split("/")[1]}
+                    location = {exam[6]}
+                    options= "'Google'"
+                    description= {"Section: " + exam[1]}
+                    
+                    // styleLight="--btn-background; --btn-text: #000000; --btn-shadow: none; width: 100%;"
+                  ></AddToCalendarButton>
             </div>
           </div>
         ))}
