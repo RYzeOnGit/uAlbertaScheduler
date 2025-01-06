@@ -179,8 +179,10 @@ export default function Calendar() {
                   <nav className="w-full bg-green-800 text-yellow-300 px-4 md:px-8 py-4">
   <div className="max-w-full mx-auto flex items-center justify-between">
     <div className="flex items-center">
+      <Link to="/" className="flex items-center">
       <img src={logo} alt="UofA Logo" className="w-10 h-10 md:w-14 md:h-14 mr-4" />
       <span className="font-bold text-lg md:text-xl">UofA Scheduler</span>
+      </Link>
     </div>
 
     {/* Mobile menu button */}
@@ -432,10 +434,11 @@ export default function Calendar() {
                   
                   <AddToCalendarButton 
                     name= {row[0]}
+                    options= "Google"
                     startDate= {row[2].split("/")[2]+"-"+row[2].split("/")[0]+"-"+row[2].split("/")[1]}
                     location = {row[6]}
-                    options= "'Google'"
                     description= {"Section: " + row[1]}
+                    
                   ></AddToCalendarButton>
                 </div>
                 </td>
