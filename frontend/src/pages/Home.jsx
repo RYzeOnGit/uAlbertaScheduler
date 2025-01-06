@@ -79,7 +79,7 @@ const Home = () => {
             <h1 className="text-4xl md:text-6xl font-bold text-yellow-300 leading-tight">
               UAlberta Final Exam Schedule
             </h1>
-            <p className="text-xl text-white max-w-lg">
+            <p className="text-xl text-black max-w-lg">
               Browse final exam schedules with ease and add them to your calendar!
             </p>
             <Link to="/search" className="w-full md:w-auto">

@@ -314,15 +314,16 @@ export default function Search() {
                 <td className="border border-gray-200 px-4 py-2">{row[6]}</td>
                 <td className="border border-gray-200 px-4 py-2">
                 <button
-                  onClick={() => handleToggleExam(row)}
-                  className={`w-full py-2 rounded-md font-bold ${
-                    savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1])
-                      ? 'bg-green-500 text-white hover:bg-green-600'
-                      : 'bg-yellow-400 text-black hover:bg-yellow-500'
-                  } active:scale-95 transition-transform duration-150 mb-2`}
-                >
-                  {savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1]) ? 'Added' : 'Add Exam'}
-                </button>
+  onClick={() => handleToggleExam(row)}
+  className={`w-full py-2 rounded-md font-bold ${
+    savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1])
+      ? 'bg-yellow-400 text-black hover:bg-yellow-500'
+      : 'bg-blue-500 text-black hover:bg-blue-600'
+  } active:scale-95 transition-transform duration-150 mb-2`}
+>
+  {savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1]) ? 'Added' : 'Add Exam'}
+</button>
+
                 </td>
               </tr>
             ))}
@@ -357,7 +358,7 @@ export default function Search() {
                 onClick={() => handleToggleExam(row)}
                 className={`w-full py-2 rounded-md font-bold ${
                   savedExams.some(saved => saved[0] === row[0] && saved[1] === row[1])
-                    ? 'bg-green-500 text-white hover:bg-green-600'
+                    ? 'bg-blue-500 text-black hover:bg-blue-600'
                     : 'bg-yellow-400 text-black hover:bg-yellow-500'
                 } active:scale-95 transition-transform duration-150 mb-2`}
               >
