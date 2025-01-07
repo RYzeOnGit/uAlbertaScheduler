@@ -40,7 +40,6 @@ const Home = () => {
           <ul className="hidden md:flex space-x-10 font-semibold text-xl">
             <li><Link to="/search" className="hover:text-yellow-500 transition duration-200">Search</Link></li>
             <li><Link to="/calendar" className="hover:text-yellow-500 transition duration-200">Calendar</Link></li>
-            <li><Link to="/contact" className="hover:text-yellow-500 transition duration-200">Contact</Link></li>
           </ul>
         </div>
 
@@ -60,13 +59,6 @@ const Home = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Calendar
-            </Link>
-            <Link 
-              to="/contact" 
-              className="block py-2 text-center text-yellow-300 hover:bg-green-900 rounded transition duration-200"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
             </Link>
           </div>
         </div>
