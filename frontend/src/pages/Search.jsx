@@ -48,6 +48,15 @@ export default function Search() {
     }
   }, []);
 
+// Extract the search term from the URL query parameter and set it to the searchTerm state
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const courseQuery = params.get('course') || ''; // Default to empty if no query
+    setSearchTerm(courseQuery);
+  }, [location]);
+
+
+
   // Save exams to cookies whenever savedExams changes
   useEffect(() => {
     if (savedExams.length > 0) {
