@@ -50,7 +50,7 @@ const Home = () => {
           <div className="hidden md:flex items-center space-x-6">
             <span>
               <Link
-                  to="/"
+                  to="/search"
                   style={{
                     textShadow: location.pathname === "/"
                       ? "0 0 10px rgba(255, 255, 0, 0.8), 0 0 20px rgba(255, 255, 0, 0.6)"
@@ -60,7 +60,7 @@ const Home = () => {
                     location.pathname === "/" ? "text-white" : "hover:text-yellow-500"
                   }`}
                 >
-                  Home
+                  Search
               </Link>
             </span>
             <span>
